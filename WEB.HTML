@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="zwed.jpg">
+  <title>Smart Ride Rwanda</title>
+  <link rel="stylesheet" href="Final Chat.css">
+  
+  <link rel="stylesheet" href="style_updates.css">
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+ 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo">SMART RIDE RWANDA</div>
+  <nav>
+    <ul>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#models">Models</a></li>
+      <li><a href="#map">Map</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="WEBLOGIN.HTML">Login</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>FIND YOUR RIDE, FAST AND EASY</h1>
+  <p>Smart transport in Rwanda. Book a motorcycle or taxi easily from your phone.</p>
+  <a href="#book" class="cta-button primary-button">BOOK NOW</a>
+</section>
+
+<section id="why">
+  <h2>WHY USE OUR SERVICE?</h2>
+  <div class="features">
+    <div class="feature">🛵<h3>Quick Booking</h3><p>Book your ride instantly without waiting.</p></div>
+    <div class="feature">🗺️<h3>Live Location</h3><p>Track nearby drivers based on your location.</p></div>
+    <div class="feature">☎️<h3>Easy Contact</h3><p>Call your driver right away to connect.</p></div>
+  </div>
+</section>
+
+<section id="models">
+  <h2>AVAILABLE MODELS</h2>
+  <div class="slideshow-container">
+    <div class="slide fade">
+      <img src="tvs.png" alt="Motorcycle">
+      <div class="slide-caption">
+        <p><strong>Motorcycle - 1 Passenger</strong></p>
+      </div>
+    </div>
+    <div class="slide fade">
+      <img src="Chevrolet cab.png" alt="Car">
+      <div class="slide-caption">
+        <p><strong>Cab - 4 Passengers</strong></p>
+      </div>
+    </div>
+    <div class="slide fade">
+      <img src="VAN.png" alt="Van">
+      <div class="slide-caption">
+        <p><strong>Van - 6-15 Passengers</strong></p>
+      </div>
+    </div>
+
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+
+  
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+</section>
+
+<section id="map">
+  <h2>FIND ROUTE TO DESTINATION & POIs</h2>
+  <div class="map-controls">
+    <input type="text" id="destination" placeholder="Enter destination address" />
+    <button onclick="getRoute()" class="primary-button">Show Route</button>
+  </div>
+  <div class="poi-buttons">
+   
+    <button onclick="togglePOI('pharmacy')" class="primary-button">Pharmacies</button>
+    <button onclick="togglePOI('school')" class="primary-button">Schools</button>
+    <button onclick="togglePOI('cafe')" class="primary-button">Cafes</button>
+    <button onclick="togglePOI('market')" class="primary-button">Markets</button>
+    <button onclick="togglePOI('restaurant')" class="primary-button">Restaurants</button>
+    <button onclick="togglePOI('hotel')" class="primary-button">Hotels</button>
+    <button onclick="togglePOI('government')" class="primary-button">Government</button>
+  </div>
+  <div id="map-container"></div>
+</section>
+
+<section id="book" class="form-section">
+  <h2>BOOK A RIDE</h2>
+  <form>
+    <label for="location">Your Location:</label>
+    <input type="text" id="location" placeholder="Auto-detect or enter manually" />
+
+    <label for="type">Transport Type:</label>
+    <select id="type">
+      <option value="motorcycle">Motorcycle</option>
+      <option value="taxi">Taxi</option>
+    </select>
+
+    <label for="capacity">Passenger Capacity:</label>
+    <input type="number" id="capacity" min="1" max="6" />
+
+    <button type="submit" class="primary-button">Find Transport</button>
+  </form>
+</section>
+
+<footer id="contact">
+  <h2>CONTACT US</h2>
+  <p>📞 +250 794 940 760</p>
+  <p>📧 smartride@rwanda.com</p>
+  <p>
+    🔗 <a href="https://tr.ee/bMinzYGwer">About Us</a> | 
+    <a href="https://www.linkedin.com/in/bisamaza-divinn-1360b9360/">LinkedIn</a> | 
+    <a href="https://tr.ee/1NbSqwwHE3">More Info</a>
+  </p>
+  <p>© 2025 Smart Ride Rwanda. All Rights Reserved.</p>
+</footer>
+
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+// Add auto-play functionality back in
+let autoSlideTimer = setInterval(() => {
+    plusSlides(1);
+}, 3000);
+</script>
+
+
+<script>
+let map = L.map('map-container').setView([-1.95, 30.06], 13);
+let routingControl;
+let userLatLng;
+
+// Define layer groups for all the POI categories
+let pharmacyLayer = L.layerGroup().addTo(map);
+let schoolLayer = L.layerGroup().addTo(map);
+let cafeLayer = L.layerGroup().addTo(map);
+let marketLayer = L.layerGroup().addTo(map);
+let restaurantLayer = L.layerGroup().addTo(map);
+let hotelLayer = L.layerGroup().addTo(map);
+let governmentLayer = L.layerGroup().addTo(map);
+
+// Use a dictionary to easily manage layers and their status with all queries
+const poiLayers = {
+  pharmacy: { layer: pharmacyLayer, active: false, query: 'node["amenity"="pharmacy"]({0},{1},{2},{3});' },
+  school: { layer: schoolLayer, active: false, query: 'node["amenity"="school"]({0},{1},{2},{3});' },
+  cafe: { layer: cafeLayer, active: false, query: 'node["amenity"="cafe"]({0},{1},{2},{3});' },
+  market: { layer: marketLayer, active: false, query: 'node["amenity"="marketplace"]({0},{1},{2},{3});' },
+  restaurant: { layer: restaurantLayer, active: false, query: 'node["amenity"="restaurant"]({0},{1},{2},{3});' },
+  hotel: { layer: hotelLayer, active: false, query: 'node["tourism"="hotel"]({0},{1},{2},{3});' },
+  government: { layer: governmentLayer, active: false, query: 'node["amenity"="government"]({0},{1},{2},{3});' }
+};
+
+// THIS IS THE CHANGED LINE TO USE SATELLITE MAP TILES
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+}).addTo(map);
+
+map.locate({ setView: true, watch: true, maxZoom: 18 });
+
+map.on('locationfound', function (e) {
+  userLatLng = e.latlng;
+  L.marker(e.latlng).addTo(map).bindPopup("📍 YOU ARE HERE").openPopup();
+});
+
+map.on('locationerror', function (e) {
+  alert("Location error: " + e.message);
+});
+
+// Function to fetch and display POIs from the Overpass API
+function fetchPOIs(poiType) {
+  const bounds = map.getBounds();
+  const bbox = [bounds.getSouth(), bounds.getWest(), bounds.getNorth(), bounds.getEast()];
+  const overpassQuery = `[out:json];${poiLayers[poiType].query.replace(/{(\d)}/g, (match, p1) => bbox[p1])}out;`;
+  
+  fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(overpassQuery)}`)
+    .then(response => response.json())
+    .then(data => {
+      // Clear existing markers for this layer before adding new ones
+      poiLayers[poiType].layer.clearLayers();
+      data.elements.forEach(element => {
+        if (element.type === 'node') {
+          const name = element.tags.name || element.tags.amenity || 'Unnamed';
+          L.marker([element.lat, element.lon]).addTo(poiLayers[poiType].layer)
+            .bindPopup(`<strong>${name}</strong><br>${element.tags.amenity || ''}`);
+        }
+      });
+    })
+    .catch(error => console.error('Error fetching POIs:', error));
+}
+
+// Function to toggle POI visibility
+function togglePOI(poiType) {
+  if (poiLayers[poiType].active) {
+    // If active, clear the markers and deactivate the layer
+    poiLayers[poiType].layer.clearLayers();
+    poiLayers[poiType].active = false;
+  } else {
+    // If not active, fetch new data and activate the layer
+    fetchPOIs(poiType);
+    poiLayers[poiType].active = true;
+  }
+}
+
+// Existing function to get the route
+function getRoute() {
+  const destination = document.getElementById("destination").value;
+  if (!destination || !userLatLng) return alert("Enter destination and allow location access.");
+
+  fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(destination)}`)
+    .then(res => res.json())
+    .then(data => {
+      if (!data.length) return alert("Destination not found.");
+      const destLatLng = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+
+      if (routingControl) map.removeControl(routingControl);
+
+      routingControl = L.Routing.control({
+        waypoints: [L.latLng(userLatLng), L.latLng(destLatLng)],
+        routeWhileDragging: false
+      }).addTo(map);
+    })
+    .catch(() => alert("Could not calculate route."));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* A general class for all primary buttons */
+.primary-button {
+  background-color: #005eff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+}
+.primary-button:hover {
+  background-color: white;
+  color: #005eff;
+  border: 1px solid #005eff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.primary-button:active {
+  animation: shake 0.4s;
+}
+
+/* Specific styling for the 'BOOK NOW' button to maintain its unique size */
+.cta-button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Styles for the POI buttons container */
+.poi-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+/* Specific styling for the POI buttons to maintain a smaller size */
+.poi-buttons .primary-button {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* Styling for the 'Show Route' and 'Find Transport' buttons */
+.map-controls button, .form-section button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* New styles for the input and select fields */
+.map-controls input, .form-section input, .form-section select {
+  width: 100%;
+  padding: 12px; /* Increased padding */
+  margin-bottom: 15px;
+  font-size: 16px; /* Increased font size */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
+  box-sizing: border-box; /* Ensures padding doesn't affect total width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a focus effect for a professional touch */
+.map-controls input:focus, .form-section input:focus, .form-section select:focus {
+  border-color: #005eff;
+  box-shadow: 0 0 8px rgba(0, 94, 255, 0.2);
+  outline: none; /* Removes the default blue outline */
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The slide with an image and a caption */
+.slide {
+  position: relative;
+}
+
+/* The text inside the image */
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  /* Reduced height for the button */
+  margin-top: -22px; 
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  user-select: none;
+  background-color: rgba(0,0,0,0.4); /* Make the buttons semi-transparent */
+  border: none;
+}
+
+/* Position the "next button" to the right and add spacing */
+.next {
+  right: 15px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Position the "prev button" to the left and add spacing */
+.prev {
+  left: 15px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* On hover, add a black background with a little opacity */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #005eff;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Re-using the shake keyframes from Final Chat.css */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
