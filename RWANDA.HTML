@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ride Rwanda - Easy Transport Solutions</title>
+    <link rel="stylesheet" href="RWANDACSS.CSS">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">🚗 Smart Ride Rwanda</a>
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="openModal('passengerModal')">Book Ride</button>
+                    <button class="btn btn-primary" onclick="openModal('driverModal')">Join as Driver</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Smart Ride Rwanda</h1>
+            <p>Easy transport solutions - Find motorcycles and taxis instantly</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="openModal('passengerModal')">Book a Ride Now</button>
+                <button class="btn btn-secondary" onclick="openModal('driverModal')">Become a Driver</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #667eea;">Why Choose Smart Ride?</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Experience the future of transportation in Rwanda with our innovative platform</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Easy to Find Transport</h3>
+                    <p>Instantly locate nearby motorcycles and taxis with our smart matching system</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Connect Directly</h3>
+                    <p>Chat with your driver without moving - coordinate pickup and details seamlessly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Easy Booking</h3>
+                    <p>Book motorcycles or cars instantly with just a few taps on your phone</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Smart Location</h3>
+                    <p>Automatic location detection or manual location setting for precise pickup</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Passenger Options</h3>
+                    <p>Choose the right vehicle capacity based on your group size</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>Direct Contact</h3>
+                    <p>Get driver contact numbers for direct communication and coordination</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="models" class="models-section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px; text-align: center; color: white;">AVAILABLE MODELS</h2>
+            
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <img src="tvs.png" alt="Motorcycle" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px;">
+                    <div class="slide-caption">
+                        <h3>Motorcycle - 1 Passenger</h3>
+                        <p>Fast and efficient for solo rides through traffic</p>
+                    </div>
+                </div>
+                
+                <div class="slide fade">
+                    <img src="Chevrolet cab.png" alt="Taxi Car" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px;">
+                    <div class="slide-caption">
+                        <h3>Taxi Car - 4 Passengers</h3>
+                        <p>Comfortable rides for small groups and families</p>
+                    </div>
+                </div>
+                
+                <div class="slide fade">
+                    <img src="VAN.png" alt="Van" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px;">
+                    <div class="slide-caption">
+                        <h3>Van - 6-8 Passengers</h3>
+                        <p>Spacious transport for larger groups</p>
+                    </div>
+                </div>
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            
+            <div class="dots-container">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="user-type-section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Join Our Community</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Whether you need a ride or want to provide rides, we've got you covered</p>
+            
+            <div class="user-types">
+                <div class="user-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">🏍️ Motorcyclists</h3>
+                    <p style="margin-bottom: 20px;">Join as a motorcycle driver and start earning today</p>
+                    <ul style="text-align: left; margin-bottom: 30px;">
+                        <li>Upload your driving license</li>
+                        <li>Get matched with nearby passengers</li>
+                        <li>Flexible working hours</li>
+                        <li>Direct customer contact</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openDriverModal('motorcycle')">Join as Motorcyclist</button>
+                </div>
+                
+                <div class="user-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">🚗 Taxi Drivers</h3>
+                    <p style="margin-bottom: 20px;">Register your taxi and connect with passengers</p>
+                    <ul style="text-align: left; margin-bottom: 30px;">
+                        <li>Specify your vehicle capacity</li>
+                        <li>Upload your driving license</li>
+                        <li>Serve multiple passengers</li>
+                        <li>Build regular customer base</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openDriverModal('taxi')">Join as Taxi Driver</button>
+                </div>
+                
+                <div class="user-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">🎯 Passengers</h3>
+                    <p style="margin-bottom: 20px;">Book your ride in seconds with Smart Ride</p>
+                    <ul style="text-align: left; margin-bottom: 30px;">
+                        <li>Auto-detect or set your location</li>
+                        <li>Choose motorcycle or taxi</li>
+                        <li>Select passenger capacity</li>
+                        <li>Contact drivers directly</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openModal('passengerModal')">Book a Ride</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #667eea;">Get in Touch</h2>
+            <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">Have questions? We're here to help!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">📞</span>
+                    <span>+250 794 940 760</span>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">🔗</span>
+                    <a href="https://www.linkedin.com/in/bisamaza-divinn-1360b9360/" target="_blank" style="color: #667eea; text-decoration: none;">LinkedIn Profile</a>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">🌐</span>
+                    <a href="https://tr.ee/bMinzYGwer" target="_blank" style="color: #667eea; text-decoration: none;">About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Driver Registration Modal -->
+    <div id="driverModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('driverModal')">&times;</span>
+            <h2>Join Smart Ride Rwanda</h2>
+            
+            <button class="btn google-btn" onclick="signInWithGoogle('driver')">
+                Continue with Google
+            </button>
+            
+            <div class="divider">
+                <span>or sign up with email</span>
+            </div>
+            
+            <form id="driverForm">
+                <div class="form-group">
+                    <label for="driverEmail">Email:</label>
+                    <input type="email" id="driverEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="driverPassword">Password:</label>
+                    <input type="password" id="driverPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="driverName">Full Name:</label>
+                    <input type="text" id="driverName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="vehicleType">Vehicle Type:</label>
+                    <select id="vehicleType" required onchange="showCapacityField()">
+                        <option value="">Select vehicle type</option>
+                        <option value="motorcycle">Motorcycle</option>
+                        <option value="taxi">Taxi/Car</option>
+                    </select>
+                </div>
+                
+                <div class="form-group hidden" id="capacityGroup">
+                    <label for="vehicleCapacity">Vehicle Capacity (number of passengers):</label>
+                    <input type="number" id="vehicleCapacity" min="1" max="8">
+                </div>
+                
+                <div class="form-group">
+                    <label for="drivingLicense">Upload Driving License:</label>
+                    <input type="file" id="drivingLicense" accept="image/*" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Complete Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Passenger Booking Modal -->
+    <div id="passengerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('passengerModal')">&times;</span>
+            <h2>Book Your Ride</h2>
+            
+            <form id="passengerForm">
+                <div class="form-group">
+                    <label for="pickupLocation">Pickup Location:</label>
+                    <input type="text" id="pickupLocation" placeholder="Enter pickup location or use GPS">
+                    <button type="button" class="btn btn-secondary" style="margin-top: 10px;" onclick="getCurrentLocation()">
+                        Use My Current Location
+                    </button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rideType">Transport Type:</label>
+                    <select id="rideType" required onchange="showPassengerCount()">
+                        <option value="">Select transport type</option>
+                        <option value="motorcycle">Motorcycle</option>
+                        <option value="taxi">Taxi/Car</option>
+                    </select>
+                </div>
+                
+                <div class="form-group hidden" id="passengerCountGroup">
+                    <label for="passengerCount">Number of Passengers:</label>
+                    <select id="passengerCount">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                        <option value="5">5 Passengers</option>
+                        <option value="6">6 Passengers</option>
+                        <option value="7">7 Passengers</option>
+                        <option value="8">8 Passengers</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Find Available Rides</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="RWANDAJS.JS"></script>
+</body>
+</html>
